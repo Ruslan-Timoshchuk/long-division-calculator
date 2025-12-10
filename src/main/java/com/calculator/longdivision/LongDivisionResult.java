@@ -3,15 +3,15 @@ package com.calculator.longdivision;
 import java.util.List;
 import java.util.Objects;
 
-public class DivisionResult {
+public class LongDivisionResult {
 
 	private final int dividend;
 	private final int divisor;
 	private final int quotient;
 	private final int remainder;
-	private final List<DivisionStep> steps;
+	private final List<LongDivisionStep> steps;
 
-	public DivisionResult(int dividend, int divisor, int quotient, int remainder, List<DivisionStep> steps) {
+	public LongDivisionResult(int dividend, int divisor, int quotient, int remainder, List<LongDivisionStep> steps) {
 		this.dividend = dividend;
 		this.divisor = divisor;
 		this.quotient = quotient;
@@ -35,7 +35,7 @@ public class DivisionResult {
 		return remainder;
 	}
 
-	public List<DivisionStep> getSteps() {
+	public List<LongDivisionStep> getSteps() {
 		return steps;
 	}
 
@@ -52,7 +52,7 @@ public class DivisionResult {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		DivisionResult result = (DivisionResult) obj;
+		LongDivisionResult result = (LongDivisionResult) obj;
 		return dividend == result.dividend && divisor == result.divisor && quotient == result.quotient
 				&& remainder == result.remainder;
 	}

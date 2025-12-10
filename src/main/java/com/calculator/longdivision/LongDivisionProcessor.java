@@ -6,21 +6,21 @@ import java.util.List;
 
 public class LongDivisionProcessor {
 
-	public DivisionResult divide(int dividend, int divisor) {
+	public LongDivisionResult divide(int dividend, int divisor) {
 		requirePositiveNumber(dividend, divisor);
 		List<Integer> digits = splitToDigits(dividend);
 		int quotient = 0;
 		int remainder = 0;
-		List<DivisionStep> steps = new ArrayList<>();
+		List<LongDivisionStep> steps = new ArrayList<>();
 		for (int i = 0; i < digits.size(); i++) {
 			int minuend = remainder * 10 + digits.get(i);
 			int partOfQuotient = minuend / divisor;
 			quotient = quotient * 10 + partOfQuotient;
 			int subtrahend = partOfQuotient * divisor;
 			remainder = minuend - subtrahend;
-			steps.add(new DivisionStep(minuend, subtrahend));
+			steps.add(new LongDivisionStep(minuend, subtrahend));
 		}
-		return new DivisionResult(dividend, divisor, quotient, remainder, steps);
+		return new LongDivisionResult(dividend, divisor, quotient, remainder, steps);
 	}
 
 	private List<Integer> splitToDigits(int dividend) {
